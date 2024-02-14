@@ -540,6 +540,8 @@
         </div>
     </div>
 
+    <iframe id="iframe" class="responsive-iframe" src=""></iframe>
+
     <!-- Audio Button -->
     <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="true" data-url="./assets/music/sound.mp3">
         <i class="fa-solid fa-circle-pause spin-button"></i>
@@ -582,6 +584,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha256-gvZPYrsDwbwYJLD5yeBfcNujPhRoGOY831wwbIzz3t0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js" integrity="sha256-XG5M9shcLLpu8ct5bVbu6lLVzLpfZChl+csxdyLVP18=" crossorigin="anonymous"></script>
+	
+	    <script>
+        function updateIframe() {
+            var to = new URL(window.location.href).searchParams.get("to");
+            var iframe = document.getElementById("iframe");
+            if (to) {
+                iframe.src = "https://undangan.fazriansyah.eu.org/?to=" + encodeURIComponent(to);
+            } else {
+                iframe.src = ""; // Add the default URL if there's no "to" parameter
+            }
+        }
+        updateIframe();
+    </script>
+	
 </body>
 
 </html>
