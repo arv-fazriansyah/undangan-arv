@@ -546,9 +546,10 @@
     </div>
 
     <!-- Audio Button -->
-    <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="true" data-url="./assets/music/sound.mp3">
-        <i class="fa-solid fa-circle-pause spin-button"></i>
+    <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="true" data-url="YOUTUBE_VIDEO_ID">
+    <i class="fa-solid fa-circle-pause spin-button"></i>
     </button>
+
 
     <!-- Loading page -->
     <div class="loading-page" id="loading" style="opacity: 1;">
@@ -583,6 +584,42 @@
         </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+<script>
+	function util.music(button) {
+    var status = button.getAttribute('data-status');
+    var player;
+
+    if (status === 'true') {
+        // Pause music
+        player.pauseVideo();
+        button.setAttribute('data-status', 'false');
+        button.innerHTML = '<i class="fa-solid fa-circle-play spin-button"></i>';
+    } else {
+        // Play music
+        player.playVideo();
+        button.setAttribute('data-status', 'true');
+        button.innerHTML = '<i class="fa-solid fa-circle-pause spin-button"></i>';
+    }
+}
+
+// YouTube API callback
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'W5tlxiKP7o0', // Set the initial video ID
+        events: {
+            'onReady': onPlayerReady,
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    // You can perform additional actions when the player is ready
+}
+</script>
+	
     <!-- Dependencies JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha256-gvZPYrsDwbwYJLD5yeBfcNujPhRoGOY831wwbIzz3t0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
