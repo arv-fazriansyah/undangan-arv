@@ -162,6 +162,7 @@ const util = (() => {
 
         document.getElementById('form-nama').value = name;
         document.getElementById('nama-tamu').appendChild(div);
+        div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
     };
 
     const animation = async () => {
