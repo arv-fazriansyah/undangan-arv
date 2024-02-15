@@ -130,18 +130,18 @@ footer {
     padding-bottom: 5rem;
 }
 
-    .embed-responsive-16by9 {
+.embed-responsive-16by9 {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 aspect ratio */
         height: 0;
         overflow: hidden;
         border-radius: 10px; /* Mengatur tingkat kebulatan sudut */
-        max-width: 50px; /* Menetapkan lebar maksimal */
+        max-width: 800px; /* Menetapkan lebar maksimal */
         max-height: 450px; /* Menetapkan tinggi maksimal */
         margin: 0 auto; /* Mengatur margin otomatis agar berada di tengah */
     }
 
-    .embed-responsive-16by9 iframe {
+.embed-responsive-16by9 iframe {
         position: absolute;
         top: 0;
         left: 0;
