@@ -1,4 +1,4 @@
-# Template website undangan pernikahan sederhana
+# Template Website Undangan Pernikahan Sederhana
 
 ![Thumbnail](/assets/images/banner.png)
 ![pages-build-deployment](https://github.com/dewanakl/undangan/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)
@@ -6,7 +6,7 @@
 
 ## Demo
 
-<https://dewanakl.github.io/undangan/?to=Teman+teman+semua>
+<https://undangan.fazriansyah.eu.org/?to=Teman+Teman+Semua>
 
 ### Deployment API
 
