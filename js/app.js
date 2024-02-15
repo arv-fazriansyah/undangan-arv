@@ -666,7 +666,7 @@ const comment = (() => {
                 <button style="font-size: 0.8rem;" onclick="comment.hapus(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Hapus</button>`
                 : ''}
             </div>
-            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-2 py-0 px-0">
+            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-2 py-0 px-0">
                 <div class="d-flex justify-content-start align-items-center">
                     <p class="my-0 mx-1" data-suka="${data.like.love}">${data.like.love} suka</p>
                     <i class="py-1 me-1 p-0 ${likes.has(data.uuid) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'}"></i>
