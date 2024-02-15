@@ -30,9 +30,9 @@
 
 I'm very open to those of you who want to contribute to the undangan!
 
-### Security Vulnerabilities
+### Email
 
-If you find any security vulnerabilities in this undangan, please email DKL via [dewanakretarta29@gmail.com](mailto:dewanakretarta29@gmail.com).
+[arvib@fazriansyah.eu.org](mailto:arvib@fazriansyah.eu.org).
 
 ### License
 
