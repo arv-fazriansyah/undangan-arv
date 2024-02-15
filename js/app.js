@@ -753,7 +753,7 @@ const comment = (() => {
                         <span class="placeholder bg-secondary col-5"></span>
                         <span class="placeholder bg-secondary col-3"></span>
                     </div>
-                    <hr class="text-dark my-1">
+                    <hr class="text-light my-1">
                     <p class="card-text placeholder-glow">
                         <span class="placeholder bg-secondary col-6"></span>
                         <span class="placeholder bg-secondary col-5"></span>
