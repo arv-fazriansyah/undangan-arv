@@ -632,15 +632,15 @@ const comment = (() => {
                     document.getElementById('balasan').innerHTML = `
                     <div class="my-3">
                         <h6>Balasan</h6>
-                        <div id="id-balasan" data-uuid="${id}" class="card-body bg-light shadow p-3 rounded-4">
+                        <div id="id-balasan" data-uuid="${id}" class="card-body bg-transparent shadow p-3 rounded-4">
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                                <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
                                     <strong>${util.escapeHtml(res.data.nama)}</strong>
                                 </p>
-                                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
+                                <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
                             </div>
-                            <hr class="text-dark my-1">
-                            <p class="text-dark m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
+                            <hr class="text-light my-1">
+                            <p class="text-light m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
                         </div>
                     </div>`;
                 }
