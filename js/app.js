@@ -158,7 +158,7 @@ const util = (() => {
 
         let div = document.createElement('div');
         div.classList.add('m-2');
-        div.innerHTML = `<p class="mt-0 mb-3 mx-0 p-0 text-light">Kepada Yth,<br>Bapak/Ibu/Saudara/i</p><h1 class="text-light">${escapeHtml(name)}</h1><p class="mt-3 text-light">Tanpa mengurangi rasa hormat,<br>Kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian<br>Untuk menghadiri acara pernikahan kami.</p>`;
+        div.innerHTML = `<p class="mt-0 mb-3 mx-0 p-0 text-light">Kepada Yth,<br>Bapak/Ibu/Saudara/i</p><h1 class="text-light">${escapeHtml(name)}</h1><p class="mt-3 text-light">Tanpa mengurangi rasa hormat,<br>Kami mengundang Bapak/Ibu/Saudara/i.<br>Untuk menghadiri acara pernikahan kami.</p>`;
 
         document.getElementById('form-nama').value = name;
         document.getElementById('nama-tamu').appendChild(div);
