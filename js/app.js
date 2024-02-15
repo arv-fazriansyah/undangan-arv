@@ -659,7 +659,7 @@ const comment = (() => {
         return `
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <div class="d-flex flex-wrap justify-content-start align-items-center">
-                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0">Balas</button>
+                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0">Balas</button>
                 ${owns.has(data.uuid)
                 ? `
                 <button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Ubah</button>
