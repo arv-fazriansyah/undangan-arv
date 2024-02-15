@@ -137,7 +137,7 @@ footer {
         overflow: hidden;
         border-radius: 10px; /* Mengatur tingkat kebulatan sudut */
         max-width: 800px; /* Menetapkan lebar maksimal */
-        max-height: 450px; /* Menetapkan tinggi maksimal */
+        max-height: 50px; /* Menetapkan tinggi maksimal */
         margin: 0 auto; /* Mengatur margin otomatis agar berada di tengah */
     }
 
