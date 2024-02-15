@@ -748,7 +748,7 @@ const comment = (() => {
         for (let index = 0; index < num; index++) {
             result += `
             <div class="mb-3">
-                <div class="card-body bg-light shadow p-3 m-0 rounded-4">
+                <div class="card-body border bg-transparent shadow p-3 m-0 rounded-4">
                     <div class="d-flex flex-wrap justify-content-between align-items-center placeholder-glow">
                         <span class="placeholder bg-secondary col-5"></span>
                         <span class="placeholder bg-secondary col-3"></span>
