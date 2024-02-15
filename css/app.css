@@ -129,3 +129,12 @@ footer {
     margin-top: -0.5rem;
     padding-bottom: 5rem;
 }
+
+.embed-responsive {
+    overflow: hidden;
+    border-radius: 10px; /* Ubah angka ini sesuai kebutuhan Anda */
+}
+
+.embed-responsive iframe {
+    border: 0;
+}
