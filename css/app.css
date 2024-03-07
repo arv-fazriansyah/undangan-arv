@@ -1,16 +1,11 @@
 html {
     scroll-behavior: smooth !important;
+    scrollbar-width: none !important;
 }
 
 body {
     font-family: 'Josefin Sans', sans-serif !important;
     padding: 0 !important;
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-}
-
-body::-webkit-scrollbar {
-    display: none !important;
 }
 
 .font-esthetic {
@@ -129,23 +124,3 @@ footer {
     margin-top: -0.5rem;
     padding-bottom: 5rem;
 }
-
-.embed-responsive-16by9 {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        border-radius: 10px; /* Mengatur tingkat kebulatan sudut */
-        margin: 0 auto; /* Mengatur margin otomatis agar berada di tengah */
-    }
-
-.embed-responsive-16by9 iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-
