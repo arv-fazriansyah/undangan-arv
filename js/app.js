@@ -158,40 +158,45 @@ const util = (() => {
 
         let div = document.createElement('div');
         div.classList.add('m-2');
-        div.innerHTML = `<p class="mt-0 mb-3 mx-0 p-0 text-light">Kepada Yth,<br>Bapak/Ibu/Saudara/i.</p><h1 class="text-primary"><strong>${escapeHtml(name)}</strong></h1><p class="mt-3 text-light">Tanpa mengurangi rasa hormat,<br>Kami mengundang untuk menghadiri acara pernikahan kami.</p>`;
+        div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
 
         document.getElementById('form-nama').value = name;
         document.getElementById('nama-tamu').appendChild(div);
     };
 
-    const animation = async () => {
-        const duration = 10 * 1000;
+    const animation = () => {
+        const duration = 15 * 1000;
         const animationEnd = Date.now() + duration;
-        let skew = 1;
+        const colors = ["#FFC0CB", "#FF1493", "#C71585"];
 
-        let randomInRange = (min, max) => {
+        const randomInRange = (min, max) => {
             return Math.random() * (max - min) + min;
         };
 
-        (async function frame() {
+        const heart = confetti.shapeFromPath({
+            path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z',
+            matrix: [0.03333333333333333, 0, 0, 0.03333333333333333, -5.566666666666666, -5.533333333333333]
+        });
+
+        (function frame() {
             const timeLeft = animationEnd - Date.now();
-            const ticks = Math.max(200, 500 * (timeLeft / duration));
 
-            skew = Math.max(0.8, skew - 0.001);
-
-            await confetti({
-                particleCount: 1,
-                startVelocity: 0,
-                ticks: ticks,
-                origin: {
-                    x: Math.random(),
-                    y: Math.random() * skew - 0.2,
-                },
-                colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
-                shapes: ["heart"],
-                gravity: randomInRange(0.5, 1),
-                scalar: randomInRange(1, 2),
-                drift: randomInRange(-0.5, 0.5),
+            colors.forEach((color) => {
+                confetti({
+                    particleCount: 1,
+                    startVelocity: 0,
+                    ticks: Math.max(50, 100 * (timeLeft / duration)),
+                    origin: {
+                        x: Math.random(),
+                        y: Math.abs(Math.random() - (timeLeft / duration)),
+                    },
+                    zIndex: 1057,
+                    colors: [color],
+                    shapes: [heart],
+                    drift: randomInRange(-0.5, 0.5),
+                    gravity: randomInRange(0.5, 1),
+                    scalar: randomInRange(0.5, 1),
+                });
             });
 
             if (timeLeft > 0) {
@@ -214,12 +219,12 @@ const util = (() => {
         document.getElementById('tombol-musik').style.display = 'block';
         timer();
 
-        await confetti({
-            origin: { y: 0.8 },
+        confetti({
+            origin: { y: 0.9 },
             zIndex: 1057
         });
         await session.check();
-        await animation();
+        animation();
     };
 
     const show = () => {
@@ -632,15 +637,15 @@ const comment = (() => {
                     document.getElementById('balasan').innerHTML = `
                     <div class="my-3">
                         <h6>Balasan</h6>
-                        <div id="id-balasan" data-uuid="${id}" class="card-body border bg-transparent shadow p-3 rounded-4">
+                        <div id="id-balasan" data-uuid="${id}" class="card-body bg-light shadow p-3 rounded-4">
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
                                     <strong>${util.escapeHtml(res.data.nama)}</strong>
                                 </p>
-                                <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
+                                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
                             </div>
-                            <hr class="text-light my-1">
-                            <p class="text-light m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
+                            <hr class="text-dark my-1">
+                            <p class="text-dark m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
                         </div>
                     </div>`;
                 }
@@ -659,14 +664,14 @@ const comment = (() => {
         return `
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <div class="d-flex flex-wrap justify-content-start align-items-center">
-                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0">Balas</button>
+                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0">Balas</button>
                 ${owns.has(data.uuid)
                 ? `
-                <button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0 ms-1">Ubah</button>
-                <button style="font-size: 0.8rem;" onclick="comment.hapus(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0 ms-1">Hapus</button>`
+                <button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Ubah</button>
+                <button style="font-size: 0.8rem;" onclick="comment.hapus(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Hapus</button>`
                 : ''}
             </div>
-            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-2 py-0 px-0">
+            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-2 py-0 px-0">
                 <div class="d-flex justify-content-start align-items-center">
                     <p class="my-0 mx-1" data-suka="${data.like.love}">${data.like.love} suka</p>
                     <i class="py-1 me-1 p-0 ${likes.has(data.uuid) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'}"></i>
@@ -681,15 +686,15 @@ const comment = (() => {
 
         comment.forEach((data) => {
             result += `
-            <div class="card-body border-start bg-transparent py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
+            <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
                 <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                    <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
                         <strong>${util.escapeHtml(data.nama)}</strong>
                     </p>
-                    <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
+                    <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
                 </div>
-                <hr class="text-light my-1">
-                <p class="text-light mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
+                <hr class="text-dark my-1">
+                <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
                 ${innerComment(data)}
             </div>`;
         });
@@ -701,15 +706,15 @@ const comment = (() => {
         const DIV = document.createElement('div');
         DIV.classList.add('mb-3');
         DIV.innerHTML = `
-        <div class="card-body border bg-transparent shadow p-3 m-0 rounded-4" data-parent="true" id="${data.uuid}">
+        <div class="card-body bg-light shadow p-3 m-0 rounded-4" data-parent="true" id="${data.uuid}">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
                     <strong class="me-1">${util.escapeHtml(data.nama)}</strong><i class="fa-solid ${data.hadir ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
                 </p>
-                <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
+                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
             </div>
-            <hr class="text-light my-1">
-            <p class="text-light mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
+            <hr class="text-dark my-1">
+            <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
             ${innerComment(data)}
         </div>`;
         return DIV;
@@ -748,12 +753,12 @@ const comment = (() => {
         for (let index = 0; index < num; index++) {
             result += `
             <div class="mb-3">
-                <div class="card-body border bg-transparent shadow p-3 m-0 rounded-4">
+                <div class="card-body bg-light shadow p-3 m-0 rounded-4">
                     <div class="d-flex flex-wrap justify-content-between align-items-center placeholder-glow">
                         <span class="placeholder bg-secondary col-5"></span>
                         <span class="placeholder bg-secondary col-3"></span>
                     </div>
-                    <hr class="text-light my-1">
+                    <hr class="text-dark my-1">
                     <p class="card-text placeholder-glow">
                         <span class="placeholder bg-secondary col-6"></span>
                         <span class="placeholder bg-secondary col-5"></span>
