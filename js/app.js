@@ -747,18 +747,18 @@ const comment = (() => {
             .catch((err) => alert(`Terdapat kesalahan: ${err}`));
     };
 
-    const renderLoading = (num) => {
+   const renderLoading = (num) => {
         let result = '';
 
         for (let index = 0; index < num; index++) {
             result += `
             <div class="mb-3">
-                <div class="card-body bg-light shadow p-3 m-0 rounded-4">
+                <div class="card-body border bg-transparent shadow p-3 m-0 rounded-4">
                     <div class="d-flex flex-wrap justify-content-between align-items-center placeholder-glow">
                         <span class="placeholder bg-secondary col-5"></span>
                         <span class="placeholder bg-secondary col-3"></span>
                     </div>
-                    <hr class="text-dark my-1">
+                    <hr class="text-light my-1">
                     <p class="card-text placeholder-glow">
                         <span class="placeholder bg-secondary col-6"></span>
                         <span class="placeholder bg-secondary col-5"></span>
