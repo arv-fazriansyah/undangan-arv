@@ -637,15 +637,15 @@ const comment = (() => {
                     document.getElementById('balasan').innerHTML = `
                     <div class="my-3">
                         <h6>Balasan</h6>
-                        <div id="id-balasan" data-uuid="${id}" class="card-body bg-light shadow p-3 rounded-4">
+                        <div id="id-balasan" data-uuid="${id}" class="card-body border bg-transparent shadow p-3 rounded-4">
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                                <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
                                     <strong>${util.escapeHtml(res.data.nama)}</strong>
                                 </p>
-                                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
+                                <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${res.data.created_at}</small>
                             </div>
-                            <hr class="text-dark my-1">
-                            <p class="text-dark m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
+                            <hr class="text-light my-1">
+                            <p class="text-light m-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(res.data.komentar))}</p>
                         </div>
                     </div>`;
                 }
@@ -664,14 +664,14 @@ const comment = (() => {
         return `
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <div class="d-flex flex-wrap justify-content-start align-items-center">
-                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0">Balas</button>
+                <button style="font-size: 0.8rem;" onclick="comment.balasan(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0">Balas</button>
                 ${owns.has(data.uuid)
                 ? `
-                <button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Ubah</button>
-                <button style="font-size: 0.8rem;" onclick="comment.hapus(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-3 py-0 ms-1">Hapus</button>`
+                <button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0 ms-1">Ubah</button>
+                <button style="font-size: 0.8rem;" onclick="comment.hapus(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-3 py-0 ms-1">Hapus</button>`
                 : ''}
             </div>
-            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-2 py-0 px-0">
+            <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${data.uuid}" class="btn btn-sm btn-outline-light rounded-2 py-0 px-0">
                 <div class="d-flex justify-content-start align-items-center">
                     <p class="my-0 mx-1" data-suka="${data.like.love}">${data.like.love} suka</p>
                     <i class="py-1 me-1 p-0 ${likes.has(data.uuid) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'}"></i>
@@ -686,15 +686,15 @@ const comment = (() => {
 
         comment.forEach((data) => {
             result += `
-            <div class="card-body border-start bg-light py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
+            <div class="card-body border-start bg-transparent py-2 ps-2 pe-0 my-2 ms-2 me-0" id="${data.uuid}">
                 <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                    <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
                         <strong>${util.escapeHtml(data.nama)}</strong>
                     </p>
-                    <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
+                    <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
                 </div>
-                <hr class="text-dark my-1">
-                <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
+                <hr class="text-light my-1">
+                <p class="text-light mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
                 ${innerComment(data)}
             </div>`;
         });
@@ -706,15 +706,15 @@ const comment = (() => {
         const DIV = document.createElement('div');
         DIV.classList.add('mb-3');
         DIV.innerHTML = `
-        <div class="card-body bg-light shadow p-3 m-0 rounded-4" data-parent="true" id="${data.uuid}">
+        <div class="card-body border bg-transparent shadow p-3 m-0 rounded-4" data-parent="true" id="${data.uuid}">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                <p class="text-light text-truncate m-0 p-0" style="font-size: 0.95rem;">
                     <strong class="me-1">${util.escapeHtml(data.nama)}</strong><i class="fa-solid ${data.hadir ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
                 </p>
-                <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
+                <small class="text-light m-0 p-0" style="font-size: 0.75rem;">${data.created_at}</small>
             </div>
-            <hr class="text-dark my-1">
-            <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
+            <hr class="text-light my-1">
+            <p class="text-light mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${convertMarkdownToHTML(util.escapeHtml(data.komentar))}</p>
             ${innerComment(data)}
         </div>`;
         return DIV;
