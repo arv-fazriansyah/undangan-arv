@@ -67,7 +67,7 @@ export const util = (() => {
 
         const div = document.createElement('div');
         div.classList.add('m-2');
-        div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">${guest.getAttribute('data-message')}</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
+        div.innerHTML = `<p class="mt-0 mb-3 mx-0 p-0 text-light">Kepada Yth,<br>Bapak/Ibu/Saudara/i.</p><h1 class="text-primary"><strong>${escapeHtml(name)}</strong></h1><p class="mt-3 text-light">Tanpa mengurangi rasa hormat,<br>Kami mengundang untuk menghadiri acara pernikahan kami.</p>`;
 
         document.getElementById('form-name').value = name;
         guest.appendChild(div);
