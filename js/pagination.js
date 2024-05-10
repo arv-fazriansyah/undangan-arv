@@ -2,7 +2,7 @@ import { comment } from './comment.js';
 
 export const pagination = (() => {
 
-    const perPage = 5;
+    const perPage = 10;
     let pageNow = 0;
     let resultData = 0;
 
