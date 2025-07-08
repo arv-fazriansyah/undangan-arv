@@ -1,8 +1,6 @@
 # Template Website Undangan Pernikahan Sederhana
 
 ![Thumbnail](https://cors.fazri.workers.dev/https://docs.google.com/thumbnail?sz=w2000&id=1PjX5pVi366VAs279MnclN05QMWQQpXIL)
-![pages-build-deployment](https://github.com/dewanakl/undangan/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)
-![Hits](https://badge.dikit.my.id/undangan?label=hits&color=brightgreen)
 
 ## Demo
 
