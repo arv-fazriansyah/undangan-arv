@@ -26,6 +26,7 @@ export const progress = (() => {
             progress();
         } else {
             asset.addEventListener('load', () => progress());
+            asset.addEventListener('error', () => progress());
         }
     });
 })();
